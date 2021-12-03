@@ -24,8 +24,6 @@ private:
 private:
 	std::string m_plainTextFilename;
 	std::string m_encTextFilename;
-	std::vector<uint32_t> plaintText;
-	std::vector<uint32_t> encText; 
 	Cryptosystem cs; 
 };
 #endif // !BRUTEFORCE
