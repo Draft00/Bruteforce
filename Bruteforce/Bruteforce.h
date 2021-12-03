@@ -8,7 +8,6 @@
 #include <iostream>
 #include <ctime>
 #include <omp.h>
-#include <bitset>
 
 #include "Cryptosystem.h"
 
