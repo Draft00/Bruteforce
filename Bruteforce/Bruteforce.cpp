@@ -30,24 +30,16 @@ void Bruteforce::brute(void)
 		if (found) {
 			#pragma omp critical
 			{
-				std::cout << "FOUND KEY: " << key;
+				std::cout << "FOUND KEY: " << key << std::endl;
 				std::string filename = "probably_key" + std::to_string(key) + ".out";
 				std::ofstream file(filename, std::ios::binary);
-				file << key;
+				unsigned char bytes[4] = { 0 };
+				bytes[0] = (key >> 24) & 0xFF;
+				bytes[1] = (key >> 16) & 0xFF;
+				bytes[2] = (key >> 8) & 0xFF;
+				bytes[3] = key & 0xFF;
+				file << bytes[0] << bytes[1] << bytes[2] << bytes[3];
 				file.close();
-			}
-		}
-		/* if ((key % 10000000) == 0)
-		{
-			#pragma omp critical 
-			{
-				std::cout << "Current key: " << key << " Elapsed time: " << time(NULL) - g_timeElapsed << " sec." << std::endl;
-			}
-		} */
-		if (key == 0) {
-			#pragma omp critical 
-			{
-				std::cout << "HI!!! IM ZERO!! Current key: " << key << " Elapsed time: " << time(NULL) - g_timeElapsed << " sec." << std::endl;
 			}
 		}
 	}
