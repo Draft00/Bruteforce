@@ -14,7 +14,7 @@
 
 class Bruteforce {
 public:
-	Bruteforce() = default;
+	Bruteforce() = delete;
 	Bruteforce(std::string m_plainTextFilename, std::string m_encTextFilename);
 	void brute(void);
 
